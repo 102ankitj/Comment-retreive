@@ -15,18 +15,23 @@ Commentslist=list()
 for i in range (1 and 40):
         CustomerReview = browser.find_element_by_id("cm_cr-review_list")
         list_of_Review = CustomerReview.find_elements_by_xpath(".//*")
-for r in list_of_Review:
+        for r in list_of_Review:
                 Title = r.find_elements_by_xpath('//*[@class="a-section celwidget"]//div[1]//a[2]')
-for t in Title:
+        for t in Title:
                 Titlelist.append(t.text)
                 Comments = r.find_elements_by_xpath('//*[@class="a-section celwidget"]/div[4]/span')
-for c in Comments:
+        for c in Comments:
                 Commentslist.append(c.text)
-elem=browser.find_element_by_xpath('//*[@id="cm_cr-pagination_bar"]/ul/li[8]/a')
-elem.click()
+        elem=browser.find_element_by_xpath('//*[@id="cm_cr-pagination_bar"]/ul/li[8]/a')
+        elem.click
+        if elem.is_displayed()==False:
+            break
+        browser.get(elem.get_attribute('href'))
+        print(Commentslist)
+        print(Titlelist)
 
-print(Commentslist)
-print(Titlelist)
+
+
 
 
 
