@@ -22,7 +22,7 @@ for i in range (1 and 40):
                 Comments = r.find_elements_by_xpath('//*[@class="a-section celwidget"]/div[4]/span')
         for c in Comments:
                 Commentslist.append(c.text)
-        elem=browser.find_element_by_xpath('//*[@id="cm_cr-pagination_bar"]/ul/li[8]/a')
+        elem=browser.find_element_by_xpath('//*[@id="cm_cr-pagination_bar"]/ul/li[@class="a-last"]/a')
         elem.click
         if elem.is_displayed()==False:
             break
